@@ -1,5 +1,3 @@
-# Minimalist Bashrc Generator
-
 ![Logo](path/to/logo.png) <!-- Replace with the actual path to your logo -->
 
 ## Description
