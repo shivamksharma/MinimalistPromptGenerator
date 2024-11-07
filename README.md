@@ -8,12 +8,10 @@
   A sleek and modern PS1 prompt generator with a minimalist design.
 </p>
 
-<a href="https://github.com/shivamksharma/MinimalistPromptGenerator/releases">
-    <img src="https://img.shields.io/github/v/release/shivamksharma/MinimalistPromptGenerator" alt="Version">
-</a>
-<a href="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/shivamksharma/MinimalistPromptGenerator" alt="License">
-</a>
+<p align="center">
+  <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/releases"><img src="https://img.shields.io/github/v/release/shivamksharma/MinimalistPromptGenerator" alt="Version"></a>
+  <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/LICENSE"><img src="https://img.shields.io/github/license/shivamksharma/MinimalistPromptGenerator" alt="License"></a>
+</p>
 
 
 ## 🚀 Overview
