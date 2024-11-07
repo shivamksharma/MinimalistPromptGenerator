@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/your-logo-path/logo.png" alt="Minimalist Prompt Generator Logo" width="200"/>
+  <img src="./assets/Designer-removebg.png" alt="Minimalist Prompt Generator Logo" width="200"/>
 </p>
 
 <h1 align="center">Minimalist Prompt Generator</h1>
@@ -55,9 +55,9 @@ npm start
 ## 🖼️ Screenshots
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/your-screenshot-path/screenshot1.png" alt="Screenshot 1" width="600"/>
+  <img src="./assets/MinimalistPromptGenerator_Preview_Image.png" alt="Screenshot 1" width="600"/>
   <br>
-  <img src="https://user-images.githubusercontent.com/your-screenshot-path/screenshot2.png" alt="Screenshot 2" width="600"/>
+  <img src="./assets/MinimalistPromptGenerator_Preview_Image2.png" alt="Screenshot 2" width="600"/>
 </p>
 
 ## 📖 Usage
