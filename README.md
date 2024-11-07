@@ -1,5 +1,3 @@
----
-
 ```markdown
 <p align="center">
   <img src="https://user-images.githubusercontent.com/your-logo-path/logo.png" alt="Minimalist Prompt Generator Logo" width="200"/>
@@ -108,5 +106,3 @@ For any issues, feel free to open an [issue](https://github.com/shivamksharma/Mi
   Made with ❤️ by Shivam Sharma
 </p>
 ```
-
----
