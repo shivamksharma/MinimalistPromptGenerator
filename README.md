@@ -1,4 +1,3 @@
-```markdown
 <p align="center">
   <img src="https://user-images.githubusercontent.com/your-logo-path/logo.png" alt="Minimalist Prompt Generator Logo" width="200"/>
 </p>
@@ -13,8 +12,6 @@
   <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/releases"><img src="https://img.shields.io/github/v/release/shivamksharma/MinimalistPromptGenerator" alt="Version"></a>
   <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/LICENSE"><img src="https://img.shields.io/github/license/shivamksharma/MinimalistPromptGenerator" alt="License"></a>
 </p>
-
----
 
 ## 🚀 Overview
 
@@ -100,9 +97,6 @@ Current version: ![Version](https://img.shields.io/github/v/release/shivamksharm
 
 For any issues, feel free to open an [issue](https://github.com/shivamksharma/MinimalistPromptGenerator/issues) or reach out for feedback.
 
----
-
 <p align="center">
   Made with ❤️ by Shivam Sharma
 </p>
-```
