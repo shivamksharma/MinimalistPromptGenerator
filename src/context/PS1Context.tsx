@@ -7,7 +7,12 @@ export const PS1Provider = ({ children }: { children: React.ReactNode }) => {
   const [elements, setElements] = useState<PS1Element[]>([]);
 
   const addElement = (element: PS1Element) => {
-    setElements((prev) => [...prev, { ...element, color: '#2dd4bf' }]);
+    setElements((prev) => [...prev, { 
+      ...element, 
+      fgColor: '#2dd4bf',
+      bgColor: undefined,
+      isBold: false
+    }]);
   };
 
   const removeElement = (id: string) => {

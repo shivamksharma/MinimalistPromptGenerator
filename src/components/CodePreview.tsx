@@ -16,11 +16,23 @@ const CodePreview = () => {
     
     return `PS1='${elements
       .map((el) => {
-        const colorCode = el.color?.replace('#', '');
-        return `\\[\\e[38;2;${parseInt(colorCode?.slice(0, 2) || 'ff', 16)};${parseInt(
-          colorCode?.slice(2, 4) || 'ff',
-          16
-        )};${parseInt(colorCode?.slice(4, 6) || 'ff', 16)}m\\]\\${el.id}\\[\\e[0m\\]`;
+        const styles = [];
+        
+        if (el.fgColor) {
+          const rgb = el.fgColor.replace('#', '');
+          styles.push(`\\[\\e[38;2;${parseInt(rgb.slice(0, 2), 16)};${parseInt(rgb.slice(2, 4), 16)};${parseInt(rgb.slice(4, 6), 16)}m\\]`);
+        }
+        
+        if (el.bgColor) {
+          const rgb = el.bgColor.replace('#', '');
+          styles.push(`\\[\\e[48;2;${parseInt(rgb.slice(0, 2), 16)};${parseInt(rgb.slice(2, 4), 16)};${parseInt(rgb.slice(4, 6), 16)}m\\]`);
+        }
+        
+        if (el.isBold) {
+          styles.push('\\[\\e[1m\\]');
+        }
+        
+        return `${styles.join('')}\\${el.id}\\[\\e[0m\\]`;
       })
       .join('')}'`;
   };

@@ -1,15 +1,15 @@
 import React from 'react';
 import { useDroppable } from '@dnd-kit/core';
 import { usePS1Context } from '../context/PS1Context';
-import { HexColorPicker } from 'react-colorful';
-import { X, GripHorizontal, Trash2 } from 'lucide-react';
+import { X, GripHorizontal, Trash2, Palette } from 'lucide-react';
+import ColorPicker from './ColorPicker';
 
 const VisualEditor = () => {
   const { setNodeRef, isOver } = useDroppable({
     id: 'editor',
   });
   const { elements, removeElement, updateElement, clearElements } = usePS1Context();
-  const [editingColor, setEditingColor] = React.useState<string | null>(null);
+  const [editingElement, setEditingElement] = React.useState<string | null>(null);
   const [showClearConfirm, setShowClearConfirm] = React.useState(false);
 
   const handleClearAll = () => {
@@ -44,7 +44,14 @@ const VisualEditor = () => {
         default: content = el.label;
       }
       return (
-        <span key={index} style={{ color: el.color }}>
+        <span 
+          key={index} 
+          style={{ 
+            color: el.fgColor,
+            backgroundColor: el.bgColor,
+            fontWeight: el.isBold ? 'bold' : 'normal'
+          }}
+        >
           {content}
         </span>
       );
@@ -89,15 +96,25 @@ const VisualEditor = () => {
                 <div
                   className="bg-white/80 dark:bg-gray-700/50 px-4 py-2 rounded-lg flex items-center gap-3 group-hover:bg-gray-50 dark:group-hover:bg-gray-700 transition-all
                     border border-gray-200 dark:border-gray-600/50 group-hover:border-teal-400/50"
-                  style={{ borderLeftColor: element.color, borderLeftWidth: 3 }}
+                  style={{ 
+                    borderLeftColor: element.fgColor, 
+                    borderLeftWidth: 3,
+                    backgroundColor: element.bgColor,
+                  }}
                 >
                   <GripHorizontal className="w-4 h-4 text-gray-400 dark:text-gray-500 cursor-move" />
-                  <div
-                    className="w-4 h-4 rounded-full cursor-pointer transition-transform hover:scale-110"
-                    style={{ backgroundColor: element.color }}
-                    onClick={() => setEditingColor(element.id)}
-                  />
-                  <span>{element.label}</span>
+                  <button
+                    onClick={() => setEditingElement(element.id)}
+                    className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    <Palette className="w-4 h-4 text-gray-500 hover:text-teal-400" />
+                  </button>
+                  <span style={{ 
+                    color: element.fgColor,
+                    fontWeight: element.isBold ? 'bold' : 'normal'
+                  }}>
+                    {element.label}
+                  </span>
                   <button
                     onClick={() => removeElement(element.id)}
                     className="opacity-0 group-hover:opacity-100 transition-opacity ml-2"
@@ -105,16 +122,12 @@ const VisualEditor = () => {
                     <X className="w-4 h-4 hover:text-red-400" />
                   </button>
                 </div>
-                {editingColor === element.id && (
-                  <div className="absolute z-10 top-full mt-2">
-                    <div className="fixed inset-0" onClick={() => setEditingColor(null)} />
-                    <div className="relative">
-                      <HexColorPicker
-                        color={element.color}
-                        onChange={(color) => updateElement(element.id, { color })}
-                      />
-                    </div>
-                  </div>
+                {editingElement === element.id && (
+                  <ColorPicker
+                    element={element}
+                    onUpdate={(updates) => updateElement(element.id, updates)}
+                    onClose={() => setEditingElement(null)}
+                  />
                 )}
               </div>
             ))}

@@ -1,7 +1,9 @@
 export interface PS1Element {
   id: string;
   label: string;
-  color?: string;
+  fgColor?: string;
+  bgColor?: string;
+  isBold?: boolean;
 }
 
 export interface PS1ContextType {
