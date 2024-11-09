@@ -1,17 +1,14 @@
-<p align="center">
-  <img src="./assets/Designer-removebg.png" alt="Minimalist Prompt Generator Logo" width="200"/>
-</p>
+<div align="center">
+  <img src="./assets/Designer-removebg.png" alt="VimMaster Logo" width="200"/>
 
-<h1 align="center">Minimalist Prompt Generator</h1>
+  # Minimalist Prompt Generator
 
-<p align="center">
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/vimmaster)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/vimmaster/pulls)
+
   A sleek and modern PS1 prompt generator with a minimalist design.
-</p>
-
-<p align="center">
-  <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/releases"><img src="https://img.shields.io/github/v/release/shivamksharma/MinimalistPromptGenerator" alt="Version"></a>
-  <a href="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/LICENSE"><img src="https://img.shields.io/github/license/shivamksharma/MinimalistPromptGenerator" alt="License"></a>
-</p>
+</div>
 
 
 ## 🚀 Overview
