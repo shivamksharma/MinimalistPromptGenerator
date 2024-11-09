@@ -58,6 +58,13 @@ npm start
   <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2"/>
 </p>
 
+## 📽️ Video Preview
+
+<video width="600" controls>
+  <source src="./assets/MinimalistPromptGenerator_Preview_Video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## 📖 Usage
 
 1. Open the app in your browser.
