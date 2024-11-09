@@ -89,12 +89,9 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ## 📌 Version
 
-Current version: ![Version](https://img.shields.io/github/v/release/shivamksharma/MinimalistPromptGenerator)
+Current version: 1.0.0
 
 ## 📬 Support
 
 For any issues, feel free to open an [issue](https://github.com/shivamksharma/MinimalistPromptGenerator/issues) or reach out for feedback.
 
-<p align="center">
-  Made with ❤️ by Shivam Sharma
-</p>
