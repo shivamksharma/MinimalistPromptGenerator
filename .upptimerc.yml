@@ -1,0 +1,44 @@
+# .upptimerc.yml
+
+# Repository configuration
+owner: shivamksharma  # Your GitHub username or organization name
+repo: MinimalistPromptGenerator  # Repository name for Upptime to track uptime
+
+# URLs to monitor
+sites:
+  - name: Minimalist Prompt Generator
+    url: https://bashrcgenerator.vercel.app  # URL of the service to monitor
+    expectedStatusCodes: [200]  # Acceptable HTTP status codes
+    maxResponseTime: 2000  # Maximum response time (in milliseconds)
+
+# Status website configuration
+status-website:
+  name: Minimalist Prompt Generator Status
+  description: "Live status page for monitoring the uptime of Minimalist Prompt Generator"
+  logoUrl: https://bashrcgenerator.vercel.app/favicon.ico  # Logo URL for the status page
+  faviconUrl: https://bashrcgenerator.vercel.app/favicon.ico  # Favicon URL for the status page
+  theme: default  # Theme of the status website (default, dark, etc.)
+  baseUrl: https://shivamksharma.github.io/MinimalistPromptGenerator  # GitHub Pages URL for status page
+
+# GitHub Actions
+githubActions:
+  interval: 5  # Interval in minutes between checks
+  commitMessages:
+    statusUpdate: "📈 Uptime update for {{ site.name }} - {{ site.status }}"  # Commit message for status updates
+    readmeUpdate: "📝 Updated README with uptime status"  # Commit message for README updates
+
+# # Notifications
+# notifications:
+#   slack:
+#     webhookUrl: "https://hooks.slack.com/services/your/slack/webhook"  # Slack webhook URL (optional)
+#   email:
+#     recipients:
+#       - "your-email@example.com"  # Email addresses for notifications (optional)
+
+# Assignees for downtime issues
+assignees:
+  - shivamksharma  # GitHub usernames to assign to downtime issues
+
+# Timezone for the status page
+timezone: "UTC"  # Adjust as needed
+
