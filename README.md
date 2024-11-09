@@ -56,9 +56,9 @@ npm start
 ## 🖼️ Screenshots
 
 <p align="center">
-  <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1" width="800"/>
+  <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/>
   <br>
-  <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2" width="600"/>
+  <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2"/>
 </p>
 
 ## 📖 Usage
