@@ -60,10 +60,7 @@ npm start
 
 ## 📽️ Video Preview
 
-<video width="600" controls>
-  <source src="https://raw.githubusercontent.com/shivamksharma/MinimalistPromptGenerator/main/assets/MinimalistPromptGenerator_Preview_Video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Video Preview](./assets/MinimalistPromptGenerator_Preview_Image_1.png)](https://raw.githubusercontent.com/shivamksharma/MinimalistPromptGenerator/main/assets/MinimalistPromptGenerator_Preview_Video.mp4)
 
 ## 📖 Usage
 
