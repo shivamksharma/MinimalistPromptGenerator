@@ -47,7 +47,7 @@ npm install
 Run the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## 🖼️ Screenshots
@@ -60,7 +60,9 @@ npm start
 
 ## 📽️ Video Preview
 
-[![Video Preview](./assets/MinimalistPromptGenerator_Preview_Image_1.png)](https://raw.githubusercontent.com/shivamksharma/MinimalistPromptGenerator/main/assets/MinimalistPromptGenerator_Preview_Video.mp4)
+<p align="center">
+  <img src="./assets/MinimalistPromptGenerator_Video_Preview.gif" alt="Video Preview"/>
+</p>
 
 ## 📖 Usage
 
