@@ -1,5 +1,5 @@
-import React from 'react';
-import { Github, Twitter, Book } from 'lucide-react';
+import React from "react";
+import { Github, Twitter, Book } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,15 +10,15 @@ const Footer = () => {
             Built with ❤️ for the terminal community
           </div>
           <div className="flex items-center space-x-6">
+            {/* <a */}
+            {/*   href="/docs" */}
+            {/*   className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors flex items-center space-x-2" */}
+            {/* > */}
+            {/*   <Book className="w-4 h-4" /> */}
+            {/*   <span>Documentation</span> */}
+            {/* </a> */}
             <a
-              href="/docs"
-              className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors flex items-center space-x-2"
-            >
-              <Book className="w-4 h-4" />
-              <span>Documentation</span>
-            </a>
-            <a
-              href="https://github.com"
+              href="https://github.com/shivamksharma/MinimalistPromptGenerator"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
@@ -41,3 +41,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
