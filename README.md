@@ -13,7 +13,11 @@
 
 ## 🚀 Overview
 
-**Minimalist Prompt Generator** is a customizable and user-friendly PS1 prompt generator that allows you to create personalized shell prompts with ease. Designed with minimalism in mind, it provides a clean and intuitive interface for generating prompts that enhance your terminal experience.
+**Minimalist Prompt Generator** is a sleek and user-friendly tool for creating personalized PS1 shell prompts with ease. Built with a focus on simplicity,  it offers a clean and intuitive interface, making it easy to design prompts that elevate your terminal experience while maintaining a minimalist aesthetic. With a minimalist design and an intuitive interface, it enhances your terminal experience by letting you create prompts that are both functional and visually appealing.
+
+
+This is inspired by the functionality and simplicity of Bashrc Generator.
+
 
 ## ✨ Features
 
