@@ -76,6 +76,10 @@ npm run dev
   <img src="./assets/MinimalistPromptGenerator.gif" alt="Video Preview" width="600"/>
 </div>
 
+<div align="center">
+  <img src="./assets/MinimalistPromptGenerator_Preview_Video.mp4" alt="Video Preview" width="800"/>
+</div>
+
 ## 📖 Usage
 
 1. Open the app in your browser.
