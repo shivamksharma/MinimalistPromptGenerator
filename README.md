@@ -56,8 +56,11 @@ npm run dev
 
 ## 🖼️ Screenshots
 
-[📷 Screenshots](./assets/Screenshots_1.png)
-[📷 Screenshots](./assets/Screenshots_2.png)
+<div align="center">
+  <img src="./assets/Screenshot_1.png" alt="Screenshot 1"/>
+    <br>
+  <img src="./assets/Screenshot_2.png" alt="Screenshot 2"/>
+</div>
 <!-- <p align="center"> -->
 <!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/> -->
 <!--   <br> -->
