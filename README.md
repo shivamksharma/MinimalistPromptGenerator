@@ -56,11 +56,13 @@ npm run dev
 
 ## 🖼️ Screenshots
 
-<p align="center">
-  <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/>
-  <br>
-  <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2"/>
-</p>
+[📷 Screenshots](./assets/Screenshots_1.png)
+[📷 Screenshots](./assets/Screenshots_2.png)
+<!-- <p align="center"> -->
+<!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/> -->
+<!--   <br> -->
+<!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2"/> -->
+<!-- </p> -->
 
 ## 📽️ Video Preview
 
@@ -96,12 +98,4 @@ Contributions are welcome! Please open issues or submit pull requests to improve
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/LICENSE) file for more details.
-
-## 📌 Version
-
-Current version: 1.0.0
-
-## 📬 Support
-
-For any issues, feel free to open an [issue](https://github.com/shivamksharma/MinimalistPromptGenerator/issues) or reach out for feedback.
 
