@@ -69,9 +69,12 @@ npm run dev
 
 ## 📽️ Video Preview
 
-<p align="center">
-    <img src="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/assets/MinimalistPromptGenerator_Video_Preview.gif" alt="Video Preview"/>
-</p>
+<!-- <p align="center"> -->
+<!--     <img src="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/assets/MinimalistPromptGenerator_Video_Preview.gif" alt="Video Preview"/> -->
+<!-- </p> -->
+<div align="center">
+  <img src="./assets/MinimalistPromptGenerator.gif" alt="Video Preview"/>
+</div>
 
 ## 📖 Usage
 
