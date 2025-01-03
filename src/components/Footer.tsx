@@ -1,5 +1,6 @@
 import React from "react";
-import { Github, Twitter, Book } from "lucide-react";
+import { Github, Book } from "lucide-react";
+import { FaRedditAlien } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -26,12 +27,12 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://reddit.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
             >
-              <Twitter className="w-5 h-5" />
+              <FaRedditAlien className="w-5 h-5" />
             </a>
           </div>
         </div>
