@@ -1,5 +1,6 @@
 import React from 'react';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import DraggableElements from './components/DraggableElements';
 import VisualEditor from './components/VisualEditor';
@@ -8,6 +9,7 @@ import Footer from './components/Footer';
 import { PS1Provider } from './context/PS1Context';
 import { usePS1Context } from './context/PS1Context';
 import { ThemeProvider } from './context/ThemeContext';
+import Documentation from './components/Documentation';
 
 function DndProvider({ children }: { children: React.ReactNode }) {
   const { addElement } = usePS1Context();
@@ -69,27 +71,34 @@ function App() {
   return (
     <ThemeProvider>
       <PS1Provider>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-1 container mx-auto px-4 py-8">
-              <DndProvider>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                  <div className="lg:col-span-3">
-                    <DraggableElements elements={elements} />
-                  </div>
-                  <div className="lg:col-span-6">
-                    <VisualEditor />
-                  </div>
-                  <div className="lg:col-span-3">
-                    <CodePreview />
-                  </div>
-                </div>
-              </DndProvider>
-            </main>
-            <Footer />
+        <Router>
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-1 container mx-auto px-4 py-8">
+                <Routes>
+                  <Route path="/documentation" element={<Documentation />} />
+                  <Route path="/" element={
+                    <DndProvider>
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <div className="lg:col-span-3">
+                          <DraggableElements elements={elements} />
+                        </div>
+                        <div className="lg:col-span-6">
+                          <VisualEditor />
+                        </div>
+                        <div className="lg:col-span-3">
+                          <CodePreview />
+                        </div>
+                      </div>
+                    </DndProvider>
+                  } />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </Router>
       </PS1Provider>
     </ThemeProvider>
   );

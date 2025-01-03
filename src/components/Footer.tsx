@@ -1,6 +1,7 @@
 import React from "react";
 import { Github, Book } from "lucide-react";
 import { FaRedditAlien } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -11,13 +12,13 @@ const Footer = () => {
             Built with ❤️ for the terminal community
           </div>
           <div className="flex items-center space-x-6">
-            {/* <a */}
-            {/*   href="/docs" */}
-            {/*   className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors flex items-center space-x-2" */}
-            {/* > */}
-            {/*   <Book className="w-4 h-4" /> */}
-            {/*   <span>Documentation</span> */}
-            {/* </a> */}
+            <Link
+              to="/documentation"
+              className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors flex items-center space-x-2"
+            >
+              <Book className="w-4 h-4" />
+              <span>Documentation</span>
+            </Link>
             <a
               href="https://github.com/shivamksharma/MinimalistPromptGenerator"
               target="_blank"

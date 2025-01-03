@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Terminal, Settings, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import SettingsMenu from './SettingsMenu';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -17,7 +18,7 @@ const Header = () => {
                 <Terminal className="w-6 h-6 text-white" />
               </div>
               <h1 className="text-xl font-semibold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
-                PS1 Generator
+                <Link to="/">PS1 Generator</Link>
               </h1>
             </div>
             <div className="flex items-center space-x-4">
