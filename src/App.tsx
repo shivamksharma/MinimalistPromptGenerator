@@ -65,6 +65,11 @@ const elements = [
   { id: 'newline', label: 'new line', category: 'special' },
   { id: 'prompt', label: '#/$', category: 'special' },
   { id: 'git_branch', label: 'git branch', category: 'git' },
+  { id: 'git_commit', label: 'git commit hash', category: 'git' },
+  { id: 'git_status', label: 'git status', category: 'git' },
+  { id: 'os', label: 'OS name', category: 'system' },
+  { id: 'check', label: '✔', category: 'symbols' },
+  { id: 'cross', label: '✖', category: 'symbols' }
 ];
 
 function App() {
