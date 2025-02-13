@@ -49,7 +49,12 @@ const Documentation = () => {
             { id: 'T', label: 'Time with Seconds', example: '14:30:45' },
             { id: 'd', label: 'Date', example: 'Mon Jan 01' },
             { id: '$', label: 'Exit Status', example: '0' },
-            { id: 'space', label: 'Space', example: ' ' }
+            { id: 'space', label: 'Space', example: ' ' },
+            { id: 'git_commit', label: 'Commit Hash', example: 'a1b2c3d' },
+            { id: 'git_status', label: 'Repo Status', example: '✓ (clean)' },
+            { id: 'os', label: 'OS Name', example: 'Linux' },
+            { id: 'check', label: 'Success', example: '✔' },
+            { id: 'cross', label: 'Error', example: '✖' }
           ].map((item) => (
             <div key={item.id} className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
