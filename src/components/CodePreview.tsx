@@ -30,7 +30,18 @@ const CodePreview = () => {
           styles.push('\\[\\e[1m\\]');
         }
         
-        return `${styles.join('')}\\${el.id}\\[\\e[0m\\]`;
+        let content = `\\${el.id}`;
+        if(el.id === 'git_commit') {
+          content = '$(git rev-parse --short HEAD 2>/dev/null)';
+        }
+        else if(el.id === 'git_status') {
+          content = '$(if git diff --quiet 2>/dev/null; then echo "✓"; else echo "✗"; fi)';
+        }
+        else if(el.id === 'os') {
+          content = '$(uname -s)';
+        }
+        
+        return `${styles.join('')}${content}\\[\\e[0m\\]`;
       })
       .join('')}'`;
   };
