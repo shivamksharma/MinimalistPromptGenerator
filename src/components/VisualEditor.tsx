@@ -65,6 +65,21 @@ const VisualEditor = () => {
         case "d":
           content = "Mon Jan 01";
           break;
+        case "git_commit":
+          content = "a1b2c3d";
+          break;
+        case "git_status":
+          content = "✓";
+          break;
+        case "os":
+          content = "Linux";
+          break;
+        case "check":
+          content = "✔";
+          break;
+        case "cross":
+          content = "✖";
+          break;
         default:
           content = el.label;
       }
