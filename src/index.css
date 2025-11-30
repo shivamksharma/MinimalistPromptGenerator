@@ -2,99 +2,175 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono Nerd Font';
+  src: url('https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@v3.0.2/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font', 'SF Mono', 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow: hidden;
 }
 
 code {
-  font-family: 'Fira Code', monospace;
+  font-family: inherit;
 }
 
-/* Prism.js theme customization */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #f8f8f2;
-  background: none;
-  font-family: 'Fira Code', monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  tab-size: 4;
-  hyphens: none;
+/* Zero-lag performance optimizations */
+button,
+a {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #6272a4;
+/* Remove all transitions globally for instant interactions */
+* {
+  transition: none !important;
+  animation: none !important;
 }
 
-.token.punctuation {
-  color: #f8f8f2;
+/* Optimize dragging performance */
+[draggable] {
+  -webkit-user-drag: element;
+  cursor: move;
 }
 
-.token.property,
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #ff79c6;
+/* Disable text selection during drag */
+.dragging * {
+  user-select: none;
+  pointer-events: none;
 }
 
-.token.boolean,
-.token.number {
-  color: #bd93f9;
+/* React Colorful minimal styling */
+.react-colorful {
+  width: 100%;
+  height: 180px;
 }
 
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #50fa7b;
+.react-colorful__saturation {
+  border: 1px solid #3a3a3a;
+  border-radius: 0;
 }
 
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-  color: #f8f8f2;
+.react-colorful__hue,
+.react-colorful__alpha {
+  height: 16px;
+  border-radius: 0;
+  border: 1px solid #3a3a3a;
+  margin-top: 8px;
 }
 
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name {
-  color: #f1fa8c;
+.react-colorful__pointer {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #00ff88;
+  border-radius: 0;
 }
 
-.token.keyword {
-  color: #ff79c6;
+/* Custom thin auto-hiding scrollbar for improved UI */
+.thin-scrollbar {
+  /* Firefox: hide scrollbar by default */
+  scrollbar-width: none;
+  /* hide */
+  scrollbar-color: transparent transparent;
+  /* hide */
 }
 
-.token.regex,
-.token.important {
-  color: #ffb86c;
+.thin-scrollbar:hover,
+.thin-scrollbar.scrolling {
+  /* Firefox: show scrollbar when active (hovering or scrolling) */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 34, 34, 0.20) transparent;
 }
 
-.token.important,
-.token.bold {
-  font-weight: bold;
+.thin-scrollbar.scrolling {
+  scrollbar-color: rgba(34, 34, 34, 0.28) transparent;
 }
 
-.token.italic {
-  font-style: italic;
+/* Webkit-based browsers */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  /* keep width stable to avoid layout shifts */
+  height: 4px;
 }
 
-.token.entity {
-  cursor: help;
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* hidden by default */
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: opacity 140ms ease, background-color 140ms ease;
+  opacity: 0;
+  /* invisible by default */
+}
+
+.thin-scrollbar:hover::-webkit-scrollbar-thumb,
+.thin-scrollbar.scrolling::-webkit-scrollbar-thumb {
+  opacity: 1;
+  background-color: rgba(34, 34, 34, 0.20);
+}
+
+/* Dark mode overrides */
+.dark .thin-scrollbar.scrolling::-webkit-scrollbar-thumb,
+.dark .thin-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.10);
+  opacity: 1;
+}
+
+.dark .thin-scrollbar {
+  /* keep hidden when not active */
+  scrollbar-color: transparent transparent;
+}
+
+.dark .thin-scrollbar:hover,
+.dark .thin-scrollbar.scrolling {
+  scrollbar-color: rgba(255, 255, 255, 0.10) transparent;
+}
+
+.dark .thin-scrollbar.scrolling {
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+/* A small utility to ensure an element never shows the scrollbar as part of layout */
+.thin-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.thin-scrollbar-hide {
+  scrollbar-width: none;
+}
+
+/* Utility to completely hide scrollbar but allow scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
