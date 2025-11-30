@@ -5,34 +5,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        gray: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#2a2f38',
-          800: '#1a1d23',
-          900: '#0f1115',
+        // Hyper-minimal terminal-inspired palette
+        graphite: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e8e8e8',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#3a3a3a',
+          800: '#262626',
+          900: '#171717',
+          950: '#0a0a0a',
         },
-        teal: {
-          400: '#2dd4bf',
+        accent: {
+          DEFAULT: '#00ff88',
+          dim: '#00cc6a',
+          dark: '#00ff88',
+          light: '#00aa55',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        mono: ['"SF Mono"', '"JetBrains Mono"', '"Fira Code"', 'Consolas', 'monospace'],
       },
-      animation: {
-        fadeIn: 'fadeIn 0.3s ease-in-out',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+      transitionProperty: {
+        'none': 'none',
       },
     },
   },
