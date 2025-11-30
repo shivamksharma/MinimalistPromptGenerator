@@ -1,39 +1,45 @@
-import React from "react";
-import { Github, Book } from "lucide-react";
+import { Github, Book, Layers } from "lucide-react";
 import { FaRedditAlien } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100/50 dark:bg-gray-800/30 border-t border-gray-200 dark:border-gray-700/50 py-6">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            Built with ❤️ for the terminal community
+    <footer className="bg-graphite-50 dark:bg-graphite-950 border-t border-graphite-200 dark:border-graphite-800 py-2">
+      <div className="px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+          <div className="text-[10px] text-graphite-500 dark:text-graphite-600 uppercase tracking-wide">
+            Built for terminal users
           </div>
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-3">
+            <Link
+              to="/presets"
+              className="text-graphite-500 dark:text-graphite-600 hover:text-accent flex items-center space-x-1"
+            >
+              <Layers className="w-3 h-3" />
+              <span className="text-[10px] uppercase tracking-wide">Presets</span>
+            </Link>
             <Link
               to="/documentation"
-              className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors flex items-center space-x-2"
+              className="text-graphite-500 dark:text-graphite-600 hover:text-accent flex items-center space-x-1"
             >
-              <Book className="w-4 h-4" />
-              <span>Documentation</span>
+              <Book className="w-3 h-3" />
+              <span className="text-[10px] uppercase tracking-wide">Docs</span>
             </Link>
             <a
               href="https://github.com/shivamksharma/MinimalistPromptGenerator"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+              className="text-graphite-500 dark:text-graphite-600 hover:text-accent"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-3.5 h-3.5" />
             </a>
             <a
               href="https://reddit.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+              className="text-graphite-500 dark:text-graphite-600 hover:text-accent"
             >
-              <FaRedditAlien className="w-5 h-5" />
+              <FaRedditAlien className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
