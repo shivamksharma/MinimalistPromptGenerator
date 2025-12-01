@@ -64,11 +64,15 @@ npm run dev
 
 ## 🖼️ Screenshots
 
-<div align="center">
-  <img src="./assets/img-light.png" alt="Light Mode" width="600"/>
-  <br>
-  <img src="./assets/img-dark.png" alt="Dark Mode" width="600"/>
-</div>
+<p align="center">
+  <img src="assets/light-mode.png" width="48%" alt="Light Mode Screenshot" />
+  <img src="assets/dark-mode.png" width="48%" alt="Dark Mode Screenshot" />
+</p>
+
+<p align="center">
+  <sub>Light Mode</sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sub>Dark Mode</sub>
+</p>
+
 
 ## 📖 Usage
 
