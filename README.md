@@ -68,24 +68,6 @@ npm run dev
   <img src="./assets/light-mode.png" alt="Light Mode" width="600"/>
   <br>
   <img src="./assets/dark-mode.png" alt="Dark Mode" width="600"/>
-  <br>
-  <img src="./assets/presets.png" alt="Presets Page" width="600"/>
-  <br>
-  <img src="./assets/docs.png" alt="Documentation Page" width="600"/>
-</div>
-<!-- <p align="center"> -->
-<!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/> -->
-<!--   <br> -->
-<!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_2.png" alt="Screenshot 2"/> -->
-<!-- </p> -->
-
-## 📽️ Video Preview
-
-<!-- <p align="center"> -->
-<!--     <img src="https://github.com/shivamksharma/MinimalistPromptGenerator/blob/main/assets/MinimalistPromptGenerator_Video_Preview.gif" alt="Video Preview"/> -->
-<!-- </p> -->
-<div align="center">
-  <img src="./assets/MinimalistPromptGenerator.gif" alt="Video Preview" width="800"/>
 </div>
 
 ## 📖 Usage
