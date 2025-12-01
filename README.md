@@ -1,12 +1,3 @@
-<div align="center">
-
-```
-┌─────────────────────────────────────────┐
-│     Minimalist Prompt Generator        │
-│   A terminal-inspired PS1 builder       │
-└─────────────────────────────────────────┘
-```
-
 # Minimalist Prompt Generator
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20App-blue?style=for-the-badge)](https://bashrcgenerator.vercel.app/)
