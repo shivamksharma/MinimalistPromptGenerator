@@ -2,6 +2,7 @@
   "name": "ps1-generator",
   "private": true,
   "version": "1.5.0",
+  "description": "A minimalist PS1 generator for bash prompt customization, shell prompt builder, and Linux terminal theming tools. Drag-and-drop interface for creating personalized terminal prompts.",
   "type": "module",
   "scripts": {
     "dev": "vite",
