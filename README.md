@@ -1,23 +1,38 @@
 <div align="center">
-  <img src="./assets/Designer-removebg.png" alt="Minimalist Prompt Generator" width="200"/>
 
-  # Minimalist Prompt Generator
+```
+┌─────────────────────────────────────────┐
+│     Minimalist Prompt Generator        │
+│   A terminal-inspired PS1 builder       │
+└─────────────────────────────────────────┘
+```
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/shivamksharma/MinimalistPromptGenerator)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/shivamksharma/MinimalistPromptGenerator/pulls)
+# Minimalist Prompt Generator
 
-  A sleek and modern PS1 prompt generator with a minimalist design.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20App-blue?style=for-the-badge)](https://bashrcgenerator.vercel.app/)
+
+[![GitHub stars](https://img.shields.io/github/stars/shivamksharma/MinimalistPromptGenerator?style=flat)](https://github.com/shivamksharma/MinimalistPromptGenerator/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
+
+A fast, animation-free, hyper-minimal drag-and-drop prompt generator for PS1.
+
 </div>
 
 
 ## 🚀 Overview
 
-**Minimalist Prompt Generator** is a sleek and user-friendly tool for creating personalized PS1 shell prompts with ease. Built with a focus on simplicity,  it offers a clean and intuitive interface, making it easy to design prompts that elevate your terminal experience while maintaining a minimalist aesthetic. With a minimalist design and an intuitive interface, it enhances your terminal experience by letting you create prompts that are both functional and visually appealing.
+**Minimalist Prompt Generator** is a sleek and user-friendly tool for creating personalized PS1 shell prompts with ease. Built with a focus on simplicity, it offers a clean and intuitive interface, making it easy to design prompts that elevate your terminal experience while maintaining a minimalist aesthetic.
 
+Inspired by the functionality and simplicity of Bashrc Generator.
 
-This is inspired by the functionality and simplicity of Bashrc Generator.
+## 💡 Why This Tool?
 
+Fast, animation-free, hyper-minimal drag-and-drop prompt generator for PS1. Designed for developers who value speed, simplicity, and a distraction-free experience. No bloat, just pure functionality to craft your perfect terminal prompt.
 
 ## ✨ Features
 
@@ -57,9 +72,13 @@ npm run dev
 ## 🖼️ Screenshots
 
 <div align="center">
-  <img src="./assets/Screenshot_1.png" alt="Screenshot 1"/>
-    <br>
-  <img src="./assets/Screenshot_2.png" alt="Screenshot 2"/>
+  <img src="./assets/light-mode.png" alt="Light Mode" width="600"/>
+  <br>
+  <img src="./assets/dark-mode.png" alt="Dark Mode" width="600"/>
+  <br>
+  <img src="./assets/presets.png" alt="Presets Page" width="600"/>
+  <br>
+  <img src="./assets/docs.png" alt="Documentation Page" width="600"/>
 </div>
 <!-- <p align="center"> -->
 <!--   <img src="./assets/MinimalistPromptGenerator_Preview_Image_1.png" alt="Screenshot 1"/> -->
