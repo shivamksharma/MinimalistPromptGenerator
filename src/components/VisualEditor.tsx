@@ -1,19 +1,187 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { useDroppable } from "@dnd-kit/core";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+  DragStartEvent,
+  DragOverlay,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  horizontalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { usePS1Context } from "../context/PS1Context";
-import { X, Palette } from "lucide-react";
+import { X, Palette, GripVertical } from "lucide-react";
 import ColorPicker from "./ColorPicker";
+import type { PS1Element } from "../types";
 
+// Sortable element chip component
+interface SortableElementProps {
+  element: PS1Element;
+  index: number;
+  editingElement: string | null;
+  setEditingElement: (uid: string | null) => void;
+  removeElement: (uid: string) => void;
+  updateElement: (uid: string, updates: Partial<PS1Element>) => void;
+}
+
+const SortableElement: React.FC<SortableElementProps> = ({
+  element,
+  editingElement,
+  setEditingElement,
+  removeElement,
+  updateElement,
+}) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    id: element.uid!,
+  });
+
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition: transition || "transform 200ms cubic-bezier(0.25, 1, 0.5, 1)",
+    opacity: isDragging ? 0.5 : 1,
+    zIndex: isDragging ? 50 : "auto",
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={`relative group ${isDragging ? "cursor-grabbing" : ""}`}
+    >
+      <div
+        className={`bg-graphite-200 dark:bg-graphite-900 border border-graphite-400 dark:border-graphite-700 px-2 py-1 flex items-center gap-1.5 group-hover:border-graphite-500 dark:group-hover:border-graphite-600 transition-colors duration-150 ${isDragging ? "shadow-lg ring-2 ring-accent/50" : ""
+          }`}
+        style={{
+          borderLeftColor: element.fgColor || "#00ff88",
+          borderLeftWidth: 2,
+        }}
+      >
+        {/* Drag handle */}
+        <button
+          {...attributes}
+          {...listeners}
+          className="text-graphite-400 dark:text-graphite-600 hover:text-graphite-600 dark:hover:text-graphite-400 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-1 focus:ring-accent/50 rounded-sm"
+          aria-label={`Drag to reorder ${element.label}`}
+        >
+          <GripVertical className="w-3 h-3" />
+        </button>
+        <button
+          onClick={() => setEditingElement(element.uid ?? element.id)}
+          className="text-graphite-500 dark:text-graphite-600 hover:text-accent focus:outline-none focus:ring-1 focus:ring-accent/50 rounded-sm"
+          aria-label={`Edit color for ${element.label}`}
+        >
+          <Palette className="w-3 h-3" />
+        </button>
+        <span className="text-xs text-graphite-700 dark:text-graphite-300 select-none">
+          {element.label}
+        </span>
+        <button
+          onClick={() => removeElement(element.uid ?? element.id)}
+          className="text-graphite-500 dark:text-graphite-700 hover:text-red-500 focus:outline-none focus:ring-1 focus:ring-red-500/50 rounded-sm"
+          aria-label={`Remove ${element.label}`}
+        >
+          <X className="w-3 h-3" />
+        </button>
+      </div>
+      {editingElement === (element.uid ?? element.id) && (
+        <ColorPicker
+          element={element}
+          onUpdate={(updates) => updateElement(element.uid ?? element.id, updates)}
+          onClose={() => setEditingElement(null)}
+        />
+      )}
+    </div>
+  );
+};
+
+// Drag overlay element (ghost that follows cursor)
+const DragOverlayElement: React.FC<{ element: PS1Element }> = ({ element }) => (
+  <div
+    className="bg-graphite-200 dark:bg-graphite-900 border border-accent px-2 py-1 flex items-center gap-1.5 shadow-xl cursor-grabbing"
+    style={{
+      borderLeftColor: element.fgColor || "#00ff88",
+      borderLeftWidth: 2,
+    }}
+  >
+    <GripVertical className="w-3 h-3 text-accent" />
+    <Palette className="w-3 h-3 text-graphite-500 dark:text-graphite-600" />
+    <span className="text-xs text-graphite-700 dark:text-graphite-300 select-none">
+      {element.label}
+    </span>
+    <X className="w-3 h-3 text-graphite-500 dark:text-graphite-700" />
+  </div>
+);
 
 const VisualEditor = () => {
   const { setNodeRef, isOver } = useDroppable({
     id: "editor",
   });
-  const { elements, removeElement, updateElement, clearElements } = usePS1Context();
+  const { elements, removeElement, updateElement, clearElements, reorderElements } = usePS1Context();
   const [editingElement, setEditingElement] = React.useState<string | null>(null);
   const [showClearConfirm, setShowClearConfirm] = React.useState(false);
+  const [activeId, setActiveId] = React.useState<string | null>(null);
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Sensors for drag detection
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5, // Minimum drag distance before activation
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  // Memoized element IDs for SortableContext
+  const elementIds = useMemo(
+    () => elements.map((el) => el.uid!).filter(Boolean),
+    [elements]
+  );
+
+  // Find active element for drag overlay
+  const activeElement = useMemo(
+    () => elements.find((el) => el.uid === activeId),
+    [elements, activeId]
+  );
+
+  const handleDragStart = (event: DragStartEvent) => {
+    setActiveId(event.active.id as string);
+    // Close color picker when dragging starts
+    setEditingElement(null);
+  };
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    setActiveId(null);
+
+    if (over && active.id !== over.id) {
+      const oldIndex = elements.findIndex((el) => el.uid === active.id);
+      const newIndex = elements.findIndex((el) => el.uid === over.id);
+
+      if (oldIndex !== -1 && newIndex !== -1) {
+        reorderElements(oldIndex, newIndex);
+      }
+    }
+  };
 
   const handleClearAll = () => {
     setShowClearConfirm(true);
@@ -108,26 +276,26 @@ const VisualEditor = () => {
         case "lock": content = "🔒"; break;
 
         // Nerd Icons
-        case "nf_linux": content = ""; break;
-        case "nf_arch": content = ""; break;
-        case "nf_debian": content = ""; break;
-        case "nf_ubuntu": content = ""; break;
-        case "nf_apple": content = ""; break;
-        case "nf_windows": content = ""; break;
-        case "nf_git": content = ""; break;
-        case "nf_github": content = ""; break;
-        case "nf_folder": content = ""; break;
-        case "nf_home": content = ""; break;
-        case "nf_term": content = ""; break;
-        case "nf_shell": content = ""; break;
-        case "nf_clock": content = ""; break;
-        case "nf_cal": content = ""; break;
-        case "nf_python": content = ""; break;
-        case "nf_node": content = ""; break;
-        case "nf_js": content = ""; break;
-        case "nf_ts": content = ""; break;
-        case "nf_rust": content = ""; break;
-        case "nf_go": content = ""; break;
+        case "nf_linux": content = ""; break;
+        case "nf_arch": content = ""; break;
+        case "nf_debian": content = ""; break;
+        case "nf_ubuntu": content = ""; break;
+        case "nf_apple": content = ""; break;
+        case "nf_windows": content = ""; break;
+        case "nf_git": content = ""; break;
+        case "nf_github": content = ""; break;
+        case "nf_folder": content = ""; break;
+        case "nf_home": content = ""; break;
+        case "nf_term": content = ""; break;
+        case "nf_shell": content = ""; break;
+        case "nf_clock": content = ""; break;
+        case "nf_cal": content = ""; break;
+        case "nf_python": content = ""; break;
+        case "nf_node": content = ""; break;
+        case "nf_js": content = ""; break;
+        case "nf_ts": content = ""; break;
+        case "nf_rust": content = ""; break;
+        case "nf_go": content = ""; break;
 
         // Spacing
         case "space": content = " "; break;
@@ -138,7 +306,7 @@ const VisualEditor = () => {
       }
       return (
         <span
-          key={index}
+          key={el.uid ?? index}
           style={{
             color: el.fgColor,
             backgroundColor: el.bgColor,
@@ -176,45 +344,34 @@ const VisualEditor = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-wrap gap-1.5 min-w-0">
-            {elements.map((element, index) => (
-              <div
-                key={element.uid ?? `${element.id}-${index}`}
-                className="relative group"
-              >
-                <div
-                  className="bg-graphite-200 dark:bg-graphite-900 border border-graphite-400 dark:border-graphite-700 px-2 py-1 flex items-center gap-2 group-hover:border-graphite-500 dark:group-hover:border-graphite-600"
-                  style={{
-                    borderLeftColor: element.fgColor || '#00ff88',
-                    borderLeftWidth: 2,
-                  }}
-                >
-                  <button
-                    onClick={() => setEditingElement(element.uid ?? element.id)}
-                    className="text-graphite-500 dark:text-graphite-600 hover:text-accent"
-                  >
-                    <Palette className="w-3 h-3" />
-                  </button>
-                  <span className="text-xs text-graphite-700 dark:text-graphite-300">
-                    {element.label}
-                  </span>
-                  <button
-                    onClick={() => removeElement(element.uid ?? element.id)}
-                    className="text-graphite-500 dark:text-graphite-700 hover:text-red-500"
-                  >
-                    <X className="w-3 h-3" />
-                  </button>
-                </div>
-                {editingElement === (element.uid ?? element.id) && (
-                  <ColorPicker
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext items={elementIds} strategy={horizontalListSortingStrategy}>
+              <div className="flex flex-wrap gap-1.5 min-w-0">
+                {elements.map((element, index) => (
+                  <SortableElement
+                    key={element.uid ?? `${element.id}-${index}`}
                     element={element}
-                    onUpdate={(updates) => updateElement(element.uid ?? element.id, updates)}
-                    onClose={() => setEditingElement(null)}
+                    index={index}
+                    editingElement={editingElement}
+                    setEditingElement={setEditingElement}
+                    removeElement={removeElement}
+                    updateElement={updateElement}
                   />
-                )}
+                ))}
               </div>
-            ))}
-          </div>
+            </SortableContext>
+            <DragOverlay dropAnimation={{
+              duration: 200,
+              easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+            }}>
+              {activeElement ? <DragOverlayElement element={activeElement} /> : null}
+            </DragOverlay>
+          </DndContext>
         )}
       </div>
       <div className="p-3">
