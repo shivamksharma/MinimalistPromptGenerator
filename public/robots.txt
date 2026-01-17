@@ -1,0 +1,48 @@
+# Robots.txt for Minimalist Prompt Generator
+# https://bashrcgenerator.vercel.app/
+
+# Allow all crawlers to access everything
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bashrcgenerator.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+
+# Specific bot rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Block AI training bots (optional, remove if you want AI indexing)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Allow assets for rich snippets
+User-agent: Googlebot-Image
+Allow: /
