@@ -43,6 +43,25 @@ const CodePreview = () => {
         else if (el.id === 'os') {
           content = '$(uname -s)';
         }
+        // Handle literal symbol characters
+        else if (el.id === 'colon') {
+          content = ':';
+        }
+        else if (el.id === 'at') {
+          content = '@';
+        }
+        else if (el.id === 'dot') {
+          content = '•';
+        }
+        else if (el.id === 'backslash') {
+          content = '\\\\';
+        }
+        else if (el.id === 'langle') {
+          content = '⟨';
+        }
+        else if (el.id === 'rangle') {
+          content = '⟩';
+        }
         // Handle icons and nerd icons (use the label/character directly)
         else if (el.id.startsWith('nf_') || ['check', 'cross', 'arrow_r', 'arrow_l', 'lambda', 'star', 'heart', 'lightning', 'gear', 'lock'].includes(el.id)) {
           content = el.label;
