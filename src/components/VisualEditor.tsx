@@ -252,6 +252,7 @@ const VisualEditor = () => {
         case "=": content = "="; break;
         case "+": content = "+"; break;
         case "colon": content = ":"; break;
+        case "at": content = "@"; break;
         case ";": content = ";"; break;
         case "dot": content = "•"; break;
 
