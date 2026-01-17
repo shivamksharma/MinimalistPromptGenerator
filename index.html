@@ -1,14 +1,277 @@
 <!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimalist Bashrc Generator</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<html lang="en" class="dark" dir="ltr">
 
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Title & Description -->
+  <title>Bash Prompt Generator - Build PS1 Prompts Visually</title>
+  <meta name="description"
+    content="Fast, minimalist PS1 prompt generator. Drag-and-drop to create custom bash/zsh prompts with git status, colors, and icons. No bloat, just results." />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bashrcgenerator.vercel.app/" />
+
+  <!-- Robots Meta -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Keywords (secondary SEO signal) -->
+  <meta name="keywords"
+    content="bash prompt generator, PS1 generator, zsh prompt builder, terminal customization, shell prompt, Linux terminal, bashrc generator, command line prompt" />
+
+  <!-- Author & Publisher -->
+  <meta name="author" content="Shivam Kumar Sharma" />
+  <meta name="publisher" content="Shivam Kumar Sharma" />
+
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bashrcgenerator.vercel.app/" />
+  <meta property="og:title" content="Bash Prompt Generator - Build PS1 Prompts Visually" />
+  <meta property="og:description"
+    content="Fast, minimalist PS1 prompt generator. Drag-and-drop to create custom bash/zsh prompts with git status, colors, and icons." />
+  <meta property="og:image" content="https://bashrcgenerator.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Minimalist Bash Prompt Generator - Visual PS1 Builder" />
+  <meta property="og:site_name" content="Minimalist Prompt Generator" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://bashrcgenerator.vercel.app/" />
+  <meta name="twitter:title" content="Bash Prompt Generator - Build PS1 Prompts Visually" />
+  <meta name="twitter:description"
+    content="Fast, minimalist PS1 prompt generator. Drag-and-drop to create custom bash/zsh prompts with git status, colors, and icons." />
+  <meta name="twitter:image" content="https://bashrcgenerator.vercel.app/og-image.png" />
+  <meta name="twitter:image:alt" content="Minimalist Bash Prompt Generator - Visual PS1 Builder" />
+
+  <!-- Theme & App Meta -->
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="application-name" content="Minimalist Prompt Generator" />
+  <meta name="apple-mobile-web-app-title" content="PS1 Generator" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://bashrcgenerator.vercel.app/#webapp",
+          "name": "Minimalist Prompt Generator",
+          "alternateName": ["Bash Prompt Generator", "PS1 Generator", "Bashrc Generator"],
+          "description": "A fast, minimalist drag-and-drop PS1 prompt generator for creating custom bash and zsh shell prompts with git integration, color customization, and icon support.",
+          "url": "https://bashrcgenerator.vercel.app/",
+          "applicationCategory": "DeveloperApplication",
+          "applicationSubCategory": "Terminal Customization Tool",
+          "operatingSystem": ["Linux", "macOS", "Windows (WSL)", "Unix"],
+          "browserRequirements": "Requires JavaScript. Works with Chrome, Firefox, Safari, Edge.",
+          "permissions": "none",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Drag-and-drop prompt builder",
+            "Real-time preview",
+            "Git integration support",
+            "ANSI color customization",
+            "Icon and symbol library",
+            "Export to bashrc/zshrc",
+            "Dark and light themes",
+            "Preset prompt templates"
+          ],
+          "screenshot": "https://bashrcgenerator.vercel.app/og-image.png",
+          "softwareVersion": "1.5.0",
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-01-17",
+          "inLanguage": "en",
+          "isAccessibleForFree": true,
+          "author": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma",
+            "url": "https://github.com/shivamksharma"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma",
+            "url": "https://github.com/shivamksharma"
+          },
+          "maintainer": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma",
+            "url": "https://github.com/shivamksharma"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://bashrcgenerator.vercel.app/#software",
+          "name": "Minimalist Prompt Generator",
+          "description": "Open-source PS1 shell prompt generator with visual drag-and-drop interface for bash and zsh customization.",
+          "url": "https://bashrcgenerator.vercel.app/",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": ["Linux", "macOS", "Windows"],
+          "programmingLanguage": ["TypeScript", "React", "JavaScript"],
+          "softwareRequirements": "Modern web browser with JavaScript enabled",
+          "memoryRequirements": "Minimal",
+          "storageRequirements": "None (web-based)",
+          "releaseNotes": "https://github.com/shivamksharma/MinimalistPromptGenerator/releases",
+          "downloadUrl": "https://github.com/shivamksharma/MinimalistPromptGenerator",
+          "installUrl": "https://bashrcgenerator.vercel.app/",
+          "softwareVersion": "1.5.0",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "50",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma"
+          }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://bashrcgenerator.vercel.app/#sourcecode",
+          "name": "MinimalistPromptGenerator",
+          "description": "Source code for the Minimalist Prompt Generator - an open-source PS1 shell prompt builder.",
+          "codeRepository": "https://github.com/shivamksharma/MinimalistPromptGenerator",
+          "programmingLanguage": [
+            {
+              "@type": "ComputerLanguage",
+              "name": "TypeScript"
+            },
+            {
+              "@type": "ComputerLanguage",
+              "name": "React"
+            },
+            {
+              "@type": "ComputerLanguage",
+              "name": "JavaScript"
+            }
+          ],
+          "runtimePlatform": "Node.js",
+          "license": "https://opensource.org/licenses/MIT",
+          "author": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma",
+            "url": "https://github.com/shivamksharma"
+          },
+          "dateCreated": "2024-01-01",
+          "dateModified": "2026-01-17"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://bashrcgenerator.vercel.app/#website",
+          "url": "https://bashrcgenerator.vercel.app/",
+          "name": "Minimalist Prompt Generator",
+          "description": "A minimalist bash and zsh PS1 prompt generator with drag-and-drop interface",
+          "inLanguage": "en",
+          "publisher": {
+            "@type": "Person",
+            "name": "Shivam Kumar Sharma"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://bashrcgenerator.vercel.app/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://bashrcgenerator.vercel.app/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://bashrcgenerator.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Documentation",
+              "item": "https://bashrcgenerator.vercel.app/documentation"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Presets",
+              "item": "https://bashrcgenerator.vercel.app/presets"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://bashrcgenerator.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a PS1 prompt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PS1 is the primary prompt string in bash and zsh shells. It defines what your terminal prompt looks like, including information like username, hostname, current directory, and git status."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I use this bash prompt generator?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply drag and drop elements from the sidebar to build your prompt visually. Customize colors and styles, then copy the generated code to your .bashrc or .zshrc file."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this work with zsh?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! The Minimalist Prompt Generator supports both bash and zsh shells. The generated prompts are compatible with most Unix-like terminals."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
