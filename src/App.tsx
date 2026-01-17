@@ -86,6 +86,7 @@ const elements = [
   { id: '=', label: '=', category: 'symbols' },
   { id: '+', label: '+', category: 'symbols' },
   { id: 'colon', label: ':', category: 'symbols' },
+  { id: 'at', label: '@', category: 'symbols' },
   { id: ';', label: ';', category: 'symbols' },
   { id: 'dot', label: '•', category: 'symbols' },
 
